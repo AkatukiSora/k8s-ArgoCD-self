@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-self
+  namespace: argocd
+spec:
+  project: argocd-management
+  source:
+    repoURL: git@github.com:AkatukiSora/k8s-ArgoCD-self.git
+    path: core
+    targetRevision: master
+    directory:
+      jsonnet:
+        tlas:
+          - name: ''
+            value: ''
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+# メモ: deploykeyの設定が必要
