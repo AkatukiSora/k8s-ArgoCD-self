@@ -6,7 +6,7 @@ metadata:
 spec:
   project: argocd-management
   source:
-    repoURL: git@github.com:AkatukiSora/k8s-ArgoCD-self.git
+    repoURL: https://github.com/AkatukiSora/k8s-ArgoCD-self.git
     path: core
     targetRevision: master
     directory:
@@ -20,4 +20,4 @@ spec:
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-# メモ: deploykeyの設定が必要
+# メモ: アクセストークンを発行してあらかじめ設定しておく
